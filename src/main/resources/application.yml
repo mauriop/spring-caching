@@ -1,0 +1,20 @@
+spring:
+  cache:
+    type: caffeine
+    cache-names: myCache, myControlledCache
+    caffeine:
+      spec: maximumSize=5, expireAfterAccess=30s
+
+logging:
+  level:
+    root: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+cache:
+  timeout: 60
+  cacheExpirations:
+    myControlledCache: 180
